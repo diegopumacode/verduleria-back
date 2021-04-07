@@ -21,13 +21,14 @@ export default class ProductController {
     product.description = productReq.description;
     product.stock = productReq.stock;
     product.price = productReq.price;
-    product.category = productReq.catefory;
+    product.category = productReq.category;
+    product.image_url = productReq.image_url;
     product.save();
     return res.send(product);
   }
 
   public async getAllProduct(req: express.Request, res: express.Response) {
-    const products = await Product.find();
+    const products = await Product.find({relations:['category']});
     return res.send(products);
   }
 }
