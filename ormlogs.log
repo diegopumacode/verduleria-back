@@ -1382,3 +1382,510 @@
 [2021-04-07T18:56:55.965Z][QUERY]: SELECT `Product`.`id` AS `Product_id`, `Product`.`create_at` AS `Product_create_at`, `Product`.`update_at` AS `Product_update_at` FROM `product` `Product` WHERE `Product`.`id` = ? -- PARAMETERS: ["dc092039-9863-4af9-aa2e-23ecda37a502"]
 [2021-04-07T18:56:56.216Z][QUERY]: COMMIT
 [2021-04-07T18:57:01.852Z][QUERY]: SELECT `Product`.`id` AS `Product_id`, `Product`.`name` AS `Product_name`, `Product`.`description` AS `Product_description`, `Product`.`stock` AS `Product_stock`, `Product`.`price` AS `Product_price`, `Product`.`image_url` AS `Product_image_url`, `Product`.`create_at` AS `Product_create_at`, `Product`.`update_at` AS `Product_update_at`, `Product`.`categoryId` AS `Product_categoryId`, `Product__category`.`id` AS `Product__category_id`, `Product__category`.`name` AS `Product__category_name`, `Product__category`.`create_at` AS `Product__category_create_at`, `Product__category`.`update_at` AS `Product__category_update_at` FROM `product` `Product` LEFT JOIN `category` `Product__category` ON `Product__category`.`id`=`Product`.`categoryId`
+[2021-04-07T20:03:03.023Z][QUERY]: SELECT `Product`.`id` AS `Product_id`, `Product`.`name` AS `Product_name`, `Product`.`description` AS `Product_description`, `Product`.`stock` AS `Product_stock`, `Product`.`price` AS `Product_price`, `Product`.`image_url` AS `Product_image_url`, `Product`.`create_at` AS `Product_create_at`, `Product`.`update_at` AS `Product_update_at`, `Product`.`categoryId` AS `Product_categoryId`, `Product__category`.`id` AS `Product__category_id`, `Product__category`.`name` AS `Product__category_name`, `Product__category`.`create_at` AS `Product__category_create_at`, `Product__category`.`update_at` AS `Product__category_update_at` FROM `product` `Product` LEFT JOIN `category` `Product__category` ON `Product__category`.`id`=`Product`.`categoryId`
+[2021-04-07T20:03:43.630Z][QUERY]: SELECT `Product`.`id` AS `Product_id`, `Product`.`name` AS `Product_name`, `Product`.`description` AS `Product_description`, `Product`.`stock` AS `Product_stock`, `Product`.`price` AS `Product_price`, `Product`.`image_url` AS `Product_image_url`, `Product`.`create_at` AS `Product_create_at`, `Product`.`update_at` AS `Product_update_at`, `Product`.`categoryId` AS `Product_categoryId`, `Product__category`.`id` AS `Product__category_id`, `Product__category`.`name` AS `Product__category_name`, `Product__category`.`create_at` AS `Product__category_create_at`, `Product__category`.`update_at` AS `Product__category_update_at` FROM `product` `Product` LEFT JOIN `category` `Product__category` ON `Product__category`.`id`=`Product`.`categoryId`
+[2021-04-07T20:07:16.242Z][QUERY]: START TRANSACTION
+[2021-04-07T20:07:16.440Z][QUERY]: SELECT DATABASE() AS `db_name`
+[2021-04-07T20:07:16.639Z][QUERY]: 
+                SELECT
+                    `TABLE_SCHEMA`,
+                    `TABLE_NAME`
+                FROM
+                    `INFORMATION_SCHEMA`.`TABLES`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'product'
+                 UNION 
+                SELECT
+                    `TABLE_SCHEMA`,
+                    `TABLE_NAME`
+                FROM
+                    `INFORMATION_SCHEMA`.`TABLES`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'category'
+                
+[2021-04-07T20:07:16.641Z][QUERY]: 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'product'
+                 UNION 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'category'
+                
+[2021-04-07T20:07:16.643Z][QUERY]: SELECT * FROM (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'product'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'category'
+            ) `kcu` WHERE `CONSTRAINT_NAME` = 'PRIMARY'
+[2021-04-07T20:07:16.644Z][QUERY]: 
+            SELECT
+                `SCHEMA_NAME`,
+                `DEFAULT_CHARACTER_SET_NAME` as `CHARSET`,
+                `DEFAULT_COLLATION_NAME` AS `COLLATION`
+            FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+            
+[2021-04-07T20:07:16.645Z][QUERY]: 
+            SELECT
+                `s`.*
+            FROM (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'product'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'category'
+            ) `s`
+            LEFT JOIN (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'product'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'category'
+            ) `rc`
+                ON
+                    `s`.`INDEX_NAME` = `rc`.`CONSTRAINT_NAME`
+                    AND
+                    `s`.`TABLE_SCHEMA` = `rc`.`CONSTRAINT_SCHEMA`
+            WHERE
+                `s`.`INDEX_NAME` != 'PRIMARY'
+                AND
+                `rc`.`CONSTRAINT_NAME` IS NULL
+            
+[2021-04-07T20:07:16.646Z][QUERY]: 
+            SELECT
+                `kcu`.`TABLE_SCHEMA`,
+                `kcu`.`TABLE_NAME`,
+                `kcu`.`CONSTRAINT_NAME`,
+                `kcu`.`COLUMN_NAME`,
+                `kcu`.`REFERENCED_TABLE_SCHEMA`,
+                `kcu`.`REFERENCED_TABLE_NAME`,
+                `kcu`.`REFERENCED_COLUMN_NAME`,
+                `rc`.`DELETE_RULE` `ON_DELETE`,
+                `rc`.`UPDATE_RULE` `ON_UPDATE`
+            FROM (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'product'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'category'
+            ) `kcu`
+            INNER JOIN (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'product'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'category'
+            ) `rc`
+                ON
+                    `rc`.`CONSTRAINT_SCHEMA` = `kcu`.`CONSTRAINT_SCHEMA`
+                    AND
+                    `rc`.`TABLE_NAME` = `kcu`.`TABLE_NAME`
+                    AND
+                    `rc`.`CONSTRAINT_NAME` = `kcu`.`CONSTRAINT_NAME`
+            
+[2021-04-07T20:08:04.077Z][QUERY]: SELECT VERSION() AS `version`
+[2021-04-07T20:08:04.285Z][QUERY]: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'yTxlie03Bg' AND `TABLE_NAME` = 'typeorm_metadata'
+[2021-04-07T20:08:04.499Z][QUERY]: COMMIT
+[2021-04-07T20:08:19.266Z][QUERY]: START TRANSACTION
+[2021-04-07T20:08:19.468Z][QUERY]: SELECT DATABASE() AS `db_name`
+[2021-04-07T20:08:19.682Z][QUERY]: 
+                SELECT
+                    `TABLE_SCHEMA`,
+                    `TABLE_NAME`
+                FROM
+                    `INFORMATION_SCHEMA`.`TABLES`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'product'
+                 UNION 
+                SELECT
+                    `TABLE_SCHEMA`,
+                    `TABLE_NAME`
+                FROM
+                    `INFORMATION_SCHEMA`.`TABLES`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'category'
+                
+[2021-04-07T20:08:19.683Z][QUERY]: 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'product'
+                 UNION 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'category'
+                
+[2021-04-07T20:08:19.683Z][QUERY]: SELECT * FROM (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'product'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'category'
+            ) `kcu` WHERE `CONSTRAINT_NAME` = 'PRIMARY'
+[2021-04-07T20:08:19.684Z][QUERY]: 
+            SELECT
+                `SCHEMA_NAME`,
+                `DEFAULT_CHARACTER_SET_NAME` as `CHARSET`,
+                `DEFAULT_COLLATION_NAME` AS `COLLATION`
+            FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+            
+[2021-04-07T20:08:19.684Z][QUERY]: 
+            SELECT
+                `s`.*
+            FROM (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'product'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'category'
+            ) `s`
+            LEFT JOIN (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'product'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'category'
+            ) `rc`
+                ON
+                    `s`.`INDEX_NAME` = `rc`.`CONSTRAINT_NAME`
+                    AND
+                    `s`.`TABLE_SCHEMA` = `rc`.`CONSTRAINT_SCHEMA`
+            WHERE
+                `s`.`INDEX_NAME` != 'PRIMARY'
+                AND
+                `rc`.`CONSTRAINT_NAME` IS NULL
+            
+[2021-04-07T20:08:19.685Z][QUERY]: 
+            SELECT
+                `kcu`.`TABLE_SCHEMA`,
+                `kcu`.`TABLE_NAME`,
+                `kcu`.`CONSTRAINT_NAME`,
+                `kcu`.`COLUMN_NAME`,
+                `kcu`.`REFERENCED_TABLE_SCHEMA`,
+                `kcu`.`REFERENCED_TABLE_NAME`,
+                `kcu`.`REFERENCED_COLUMN_NAME`,
+                `rc`.`DELETE_RULE` `ON_DELETE`,
+                `rc`.`UPDATE_RULE` `ON_UPDATE`
+            FROM (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'product'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'category'
+            ) `kcu`
+            INNER JOIN (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'product'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'category'
+            ) `rc`
+                ON
+                    `rc`.`CONSTRAINT_SCHEMA` = `kcu`.`CONSTRAINT_SCHEMA`
+                    AND
+                    `rc`.`TABLE_NAME` = `kcu`.`TABLE_NAME`
+                    AND
+                    `rc`.`CONSTRAINT_NAME` = `kcu`.`CONSTRAINT_NAME`
+            
+[2021-04-07T20:09:05.836Z][QUERY]: SELECT VERSION() AS `version`
+[2021-04-07T20:09:06.056Z][QUERY]: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'yTxlie03Bg' AND `TABLE_NAME` = 'typeorm_metadata'
+[2021-04-07T20:09:06.264Z][QUERY]: COMMIT
+[2021-04-07T20:10:02.407Z][QUERY]: START TRANSACTION
+[2021-04-07T20:10:02.649Z][QUERY]: SELECT DATABASE() AS `db_name`
+[2021-04-07T20:10:02.868Z][QUERY]: 
+                SELECT
+                    `TABLE_SCHEMA`,
+                    `TABLE_NAME`
+                FROM
+                    `INFORMATION_SCHEMA`.`TABLES`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'product'
+                 UNION 
+                SELECT
+                    `TABLE_SCHEMA`,
+                    `TABLE_NAME`
+                FROM
+                    `INFORMATION_SCHEMA`.`TABLES`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'category'
+                
+[2021-04-07T20:10:02.869Z][QUERY]: 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'product'
+                 UNION 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'category'
+                
+[2021-04-07T20:10:02.870Z][QUERY]: SELECT * FROM (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'product'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'category'
+            ) `kcu` WHERE `CONSTRAINT_NAME` = 'PRIMARY'
+[2021-04-07T20:10:02.870Z][QUERY]: 
+            SELECT
+                `SCHEMA_NAME`,
+                `DEFAULT_CHARACTER_SET_NAME` as `CHARSET`,
+                `DEFAULT_COLLATION_NAME` AS `COLLATION`
+            FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+            
+[2021-04-07T20:10:02.871Z][QUERY]: 
+            SELECT
+                `s`.*
+            FROM (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'product'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'category'
+            ) `s`
+            LEFT JOIN (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'product'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'category'
+            ) `rc`
+                ON
+                    `s`.`INDEX_NAME` = `rc`.`CONSTRAINT_NAME`
+                    AND
+                    `s`.`TABLE_SCHEMA` = `rc`.`CONSTRAINT_SCHEMA`
+            WHERE
+                `s`.`INDEX_NAME` != 'PRIMARY'
+                AND
+                `rc`.`CONSTRAINT_NAME` IS NULL
+            
+[2021-04-07T20:10:02.872Z][QUERY]: 
+            SELECT
+                `kcu`.`TABLE_SCHEMA`,
+                `kcu`.`TABLE_NAME`,
+                `kcu`.`CONSTRAINT_NAME`,
+                `kcu`.`COLUMN_NAME`,
+                `kcu`.`REFERENCED_TABLE_SCHEMA`,
+                `kcu`.`REFERENCED_TABLE_NAME`,
+                `kcu`.`REFERENCED_COLUMN_NAME`,
+                `rc`.`DELETE_RULE` `ON_DELETE`,
+                `rc`.`UPDATE_RULE` `ON_UPDATE`
+            FROM (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'product'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'category'
+            ) `kcu`
+            INNER JOIN (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'product'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'yTxlie03Bg'
+                    AND
+                    `TABLE_NAME` = 'category'
+            ) `rc`
+                ON
+                    `rc`.`CONSTRAINT_SCHEMA` = `kcu`.`CONSTRAINT_SCHEMA`
+                    AND
+                    `rc`.`TABLE_NAME` = `kcu`.`TABLE_NAME`
+                    AND
+                    `rc`.`CONSTRAINT_NAME` = `kcu`.`CONSTRAINT_NAME`
+            
+[2021-04-07T20:10:04.619Z][QUERY]: SELECT `Product`.`id` AS `Product_id`, `Product`.`name` AS `Product_name`, `Product`.`description` AS `Product_description`, `Product`.`stock` AS `Product_stock`, `Product`.`price` AS `Product_price`, `Product`.`image_url` AS `Product_image_url`, `Product`.`create_at` AS `Product_create_at`, `Product`.`update_at` AS `Product_update_at`, `Product`.`categoryId` AS `Product_categoryId`, `Product__category`.`id` AS `Product__category_id`, `Product__category`.`name` AS `Product__category_name`, `Product__category`.`create_at` AS `Product__category_create_at`, `Product__category`.`update_at` AS `Product__category_update_at` FROM `product` `Product` LEFT JOIN `category` `Product__category` ON `Product__category`.`id`=`Product`.`categoryId`
+[2021-04-07T20:10:09.353Z][QUERY]: SELECT `Product`.`id` AS `Product_id`, `Product`.`name` AS `Product_name`, `Product`.`description` AS `Product_description`, `Product`.`stock` AS `Product_stock`, `Product`.`price` AS `Product_price`, `Product`.`image_url` AS `Product_image_url`, `Product`.`create_at` AS `Product_create_at`, `Product`.`update_at` AS `Product_update_at`, `Product`.`categoryId` AS `Product_categoryId`, `Product__category`.`id` AS `Product__category_id`, `Product__category`.`name` AS `Product__category_name`, `Product__category`.`create_at` AS `Product__category_create_at`, `Product__category`.`update_at` AS `Product__category_update_at` FROM `product` `Product` LEFT JOIN `category` `Product__category` ON `Product__category`.`id`=`Product`.`categoryId`
+[2021-04-07T20:10:45.122Z][QUERY]: SELECT VERSION() AS `version`
+[2021-04-07T20:10:45.337Z][QUERY]: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'yTxlie03Bg' AND `TABLE_NAME` = 'typeorm_metadata'
+[2021-04-07T20:10:45.547Z][QUERY]: COMMIT
+[2021-04-07T20:13:18.234Z][QUERY]: SELECT `Product`.`id` AS `Product_id`, `Product`.`name` AS `Product_name`, `Product`.`description` AS `Product_description`, `Product`.`stock` AS `Product_stock`, `Product`.`price` AS `Product_price`, `Product`.`image_url` AS `Product_image_url`, `Product`.`create_at` AS `Product_create_at`, `Product`.`update_at` AS `Product_update_at`, `Product`.`categoryId` AS `Product_categoryId`, `Product__category`.`id` AS `Product__category_id`, `Product__category`.`name` AS `Product__category_name`, `Product__category`.`create_at` AS `Product__category_create_at`, `Product__category`.`update_at` AS `Product__category_update_at` FROM `product` `Product` LEFT JOIN `category` `Product__category` ON `Product__category`.`id`=`Product`.`categoryId`
+[2021-04-07T20:14:39.824Z][QUERY]: SELECT `Product`.`id` AS `Product_id`, `Product`.`name` AS `Product_name`, `Product`.`description` AS `Product_description`, `Product`.`stock` AS `Product_stock`, `Product`.`price` AS `Product_price`, `Product`.`image_url` AS `Product_image_url`, `Product`.`create_at` AS `Product_create_at`, `Product`.`update_at` AS `Product_update_at`, `Product`.`categoryId` AS `Product_categoryId`, `Product__category`.`id` AS `Product__category_id`, `Product__category`.`name` AS `Product__category_name`, `Product__category`.`create_at` AS `Product__category_create_at`, `Product__category`.`update_at` AS `Product__category_update_at` FROM `product` `Product` LEFT JOIN `category` `Product__category` ON `Product__category`.`id`=`Product`.`categoryId`

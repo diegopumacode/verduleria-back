@@ -11,7 +11,7 @@ export default class App {
     this.port = port;
     this.initializeModels();
     this.initializeMiddleware();
-    this.initializeControllers(controllers)
+    this.initializeControllers(controllers);
   }
 
   private async initializeModels() {
@@ -21,11 +21,19 @@ export default class App {
     }
     connection.synchronize();
     this.connection = connection;
-    console.log(this.connection.isConnected)
+    console.log(this.connection.isConnected);
   }
 
   private initializeMiddleware() {
     this.app.use(express.json());
+    this.app.use((req, res, next) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+      );
+      next();
+    });
   }
 
   private initializeControllers(controllers: any[]) {
