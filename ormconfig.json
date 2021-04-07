@@ -1,0 +1,14 @@
+{
+    "type": "mysql",
+    "host": "remotemysql.com",
+    "port": "3306",
+    "username": "yTxlie03Bg",
+    "password": "bZzF89ZFNL",
+    "database": "yTxlie03Bg",
+    "syncronize": true,
+    "logging": true,
+    "logger": "file",
+    "entities": ["src/models/**/*.ts"],
+    "migrations": ["src/migrations/**/*.ts"]
+  }
+  
